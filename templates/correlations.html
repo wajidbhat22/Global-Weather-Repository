@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Climate Variable Correlations</h1>
+<div class="plot">
+    {{ heatmap_plot|safe }}
+</div>
+{% endblock %}
+
+
