@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Custom Scatter Analysis</h1>
+<form method="get" style="margin-bottom: 16px;">
+    <label for="x">X:</label>
+    <select id="x" name="x">
+        {% for v in numeric_options %}
+            <option value="{{ v }}" {% if x_var == v %}selected{% endif %}>{{ v }}</option>
+        {% endfor %}
+    </select>
+    <label for="y">Y:</label>
+    <select id="y" name="y">
+        {% for v in numeric_options %}
+            <option value="{{ v }}" {% if y_var == v %}selected{% endif %}>{{ v }}</option>
+        {% endfor %}
+    </select>
+    <label for="country">Country:</label>
+    <select id="country" name="country">
+        {% for c in countries %}
+            <option value="{{ c }}" {% if country == c %}selected{% endif %}>{{ c }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Update</button>
+ </form>
+<div class="plot">
+    {{ scatter_plot|safe }}
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Climate Dashboard</title>
+    <meta charset="utf-8">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa; }
+        header { background-color: #1f2933; color: white; padding: 16px 24px; }
+        nav a { color: white; margin-right: 16px; text-decoration: none; font-weight: 500; }
+        .container { padding: 24px; max-width: 1200px; margin: 0 auto; }
+        .cards { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 24px; }
+        .card { background-color: white; padding: 16px; border-radius: 8px; box-shadow: 0 1px 3px rgba(15,23,42,0.1); flex: 1 1 200px; }
+        h1, h2 { margin-bottom: 12px; }
+        .plot { margin-bottom: 32px; background-color: white; padding: 16px; border-radius: 8px; box-shadow: 0 1px 3px rgba(15,23,42,0.1); }
+        select { padding: 4px 8px; }
+    </style>
+</head>
+<body>
+<header>
+    <nav>
+        <a href="/">Overview</a>
+        <a href="/regions">Regions</a>
+        <a href="/extremes">Extremes</a>
+        <a href="/scatter">Scatter</a>
+        <a href="/correlations">Correlations</a>
+    </nav>
+</header>
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+</body>
+</html>
+
+

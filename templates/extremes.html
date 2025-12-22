@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Extreme Weather and Air Quality Events</h1>
+<form method="get">
+    <label for="metric">Metric:</label>
+    <select id="metric" name="metric" onchange="this.form.submit()">
+        {% for key, label in metric_map.items() %}
+            <option value="{{ key }}" {% if metric == key %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+    </select>
+</form>
+{% if high_threshold is not none and low_threshold is not none %}
+<p>Top 5% threshold: {{ high_threshold|round(3) }}, Bottom 5% threshold: {{ low_threshold|round(3) }}</p>
+<div class="plot">
+    {{ high_plot|safe }}
+</div>
+<div class="plot">
+    {{ low_plot|safe }}
+</div>
+{% else %}
+<p>No data available for this metric.</p>
+{% endif %}
+{% endblock %}
+
+

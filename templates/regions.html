@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Regional Climate Comparison</h1>
+<form method="get">
+    <label for="metric">Metric:</label>
+    <select id="metric" name="metric" onchange="this.form.submit()">
+        <option value="avg_temperature" {% if metric == "avg_temperature" %}selected{% endif %}>Average Temperature</option>
+        <option value="avg_precip" {% if metric == "avg_precip" %}selected{% endif %}>Average Precipitation</option>
+        <option value="avg_uv" {% if metric == "avg_uv" %}selected{% endif %}>Average UV Index</option>
+        <option value="avg_pm25" {% if metric == "avg_pm25" %}selected{% endif %}>Average PM2.5</option>
+    </select>
+</form>
+<div class="plot">
+    {{ bar_plot|safe }}
+</div>
+<div class="plot">
+    {{ map_plot|safe }}
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Global Climate Overview</h1>
+<div class="cards">
+    <div class="card">
+        <h2>Avg Temperature</h2>
+        <p>{{ global_avg_temp }}</p>
+    </div>
+    <div class="card">
+        <h2>Avg Humidity</h2>
+        <p>{{ global_avg_humidity }}</p>
+    </div>
+    <div class="card">
+        <h2>Avg Precipitation</h2>
+        <p>{{ global_avg_precip }}</p>
+    </div>
+    <div class="card">
+        <h2>Avg PM2.5</h2>
+        <p>{{ global_avg_pm25 }}</p>
+    </div>
+</div>
+<div class="plot">
+    {{ temp_plot|safe }}
+</div>
+<div class="plot">
+    {{ precip_plot|safe }}
+</div>
+{% endblock %}
+
+
